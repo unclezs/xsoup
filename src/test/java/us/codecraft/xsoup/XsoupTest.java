@@ -22,14 +22,13 @@ public class XsoupTest {
     @Test
     public void testSelect() {
 
-        String html = "<html><div><a href='https://github.com'>github.com</a></div>" +
+        String html = "<html><div><a href='123.html'>github.com</a></div>" +
                 "<table><tr><td>a</td><td>b</td></tr></table></html>";
 
-        Document document = Jsoup.parse(html);
+        Document document = Jsoup.parse(html,"https://github.com");
 
-        String result = Xsoup.compile("//a/@href").evaluate(document).get();
-        assertThat(result).isEqualTo("https://github.com");
-
+        String result = Xsoup.compile("//a/@abs:href").evaluate(document).get();
+        System.out.println(result);
         XPathEvaluator xPathEvaluator = Xsoup.compile("//tr/td/text()");
         List<String> list = xPathEvaluator.evaluate(document).list();
         assertThat(list).contains("a","b");
