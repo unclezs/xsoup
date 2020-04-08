@@ -1,5 +1,12 @@
 Xsoup
 ----
+获取绝对路径写法
+
+因为借助于Jsoup所以和Jsoup写法一样，加上abs:attr前缀就行了
+
+//a/@abs:href
+
+----
 [![Build Status](https://api.travis-ci.org/code4craft/xsoup.png?branch=master)](https://travis-ci.org/code4craft/xsoup)
 
 XPath selector based on Jsoup.
